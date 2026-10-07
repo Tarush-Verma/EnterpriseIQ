@@ -1,6 +1,7 @@
 import csv 
 
 from langchain_core.tools import tool
+from app.models.business_metrics import BusinessMetrics
 
 @tool
 def read_csv(file_path: str) -> list[dict]:
@@ -60,14 +61,14 @@ def analyze_business_data(file_path: str) -> dict:
 
     average_monthly_profit = total_profit / len(rows)
 
-    return {
-        "total_revenue": total_revenue,
-        "total_expenses": total_expenses,
-        "total_profit": total_profit,
-        "profit_margin": round(profit_margin, 2),
-        "average_monthly_revenue": round(average_revenue, 2),
-        "highest_revenue_month": highest_revenue_month,
-        "highest_profit_month": highest_profit_month,
-        "lowest_profit_month": lowest_profit_month,
-        "average_monthly_profit": round(average_monthly_profit, 2),
-    }
+    return BusinessMetrics(
+        total_revenue=total_revenue,
+        total_expenses=total_expenses,
+        total_profit=total_profit,
+        profit_margin=round(profit_margin, 2),
+        average_monthly_revenue=round(average_revenue, 2),
+        average_monthly_profit=round(average_monthly_profit, 2),
+        highest_revenue_month=highest_revenue_month,
+        highest_profit_month=highest_profit_month,
+        lowest_profit_month=lowest_profit_month,
+    )

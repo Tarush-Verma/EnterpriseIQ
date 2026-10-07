@@ -1,6 +1,6 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from app.core.config import MODEL_NAME
 
-model = ChatGoogleGenerativeAI(
+model = ChatGroq(
     model=MODEL_NAME
 )

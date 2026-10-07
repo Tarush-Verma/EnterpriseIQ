@@ -1,6 +1,6 @@
 from langchain_core.messages import SystemMessage, HumanMessage 
-from core.llm import model
-from prompts.system_prompt import SYSTEM_PROMPT
+from app.core.llm import model
+from app.prompts.system_prompt import SYSTEM_PROMPT
 def run_chat():
     print("=" * 40)
     print("      EnterpriseIQ AI")
